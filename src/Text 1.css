@@ -1,0 +1,48 @@
+/* #one {
+color:orange;
+} */ 
+
+input.search{
+    position: relative;
+    top: 30px;
+    left: 600px;
+    height: 30px;
+    width: 300px;
+    border: 2px solid black;
+}
+#line{
+    position: relative;
+    top: 40px;
+}
+h5{
+    position: relative;
+    top: 30px;
+    left: 730px;
+
+}
+#direction{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+}
+.image{
+    
+    position: relative;
+    top: 50px;
+    height:100px;
+    width: 100px;
+    display: flex;
+    border: 1px solid black;
+
+    
+
+
+}
+.brandname{
+    position: relative;
+    top: 50px;
+    
+}
+

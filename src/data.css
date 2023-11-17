@@ -1,0 +1,13 @@
+.two{
+    height: 200px;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 100px;
+}
+.two-name{
+    position: relative;
+    top: 500px;
+
+}
