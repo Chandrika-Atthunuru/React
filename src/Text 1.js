@@ -193,3 +193,12 @@ import React, { useEffect, useState } from "react";
 //    )
 // }
 // export default Personsdata;
+const Count=({text,number})=>{
+console.log(`${text} rendered`)
+return(
+   <div>
+      {text},{number}
+   </div>
+)
+}
+export default React.memo(Count)

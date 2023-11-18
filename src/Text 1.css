@@ -20,12 +20,14 @@ h5{
     left: 730px;
 
 }
+
+
 #direction{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    
+    justify-content: space-between;
+    margin-right: 60px;   
 }
 .image{
     
@@ -35,10 +37,6 @@ h5{
     width: 100px;
     display: flex;
     border: 1px solid black;
-
-    
-
-
 }
 .brandname{
     position: relative;

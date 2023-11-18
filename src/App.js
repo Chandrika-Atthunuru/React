@@ -10,7 +10,9 @@
 // import React,{useReducer, useRef, useState} from 'react';
 // import Cocktail from './Text 1'
 // import Personsdata from './Text 1'
-import React , { useState } from "react";
+import React , { useCallback, useState } from "react";
+import Button from "./Button";
+import Count from './Text 1';
 
 
 
@@ -380,31 +382,49 @@ import React , { useState } from "react";
 //     </div>
 //   )
 // }
-// example of useref
-function App(){
-  count [count,setcount]=useState(0)
-  count[number,setnumber]=useState(5)
-  const factorial= React.useMemo(() => fact(number),[number])
-  const handelchange=()=>{
-    setcount(count+1)
-  }
-  return(
-    <>
-    {factorial}
-    <button onClick={handelchange}>share</button>
-    {count}
-    </> 
+// example of useMemo
+// function App(){
+//   const [count,setcount] =useState(0);
+//   const [number,setnumber]=useState(10);
+//   const factorial=React.useMemo(()=>fact(number),[number])
+//   const handelChange=()=>{
+//     setcount(count+1)
+//   }
+//   return(
+//     <>
+//     {factorial}
+//     <button onClick={handelChange}>share</button>
+//     {count}
+//     </> 
+//   )
+//   }
+// const fact=(n)=>{
+//   let answer =1;
+//  for (var i=n;i>=1;i--){
+//   answer=answer*i
+//  }
+//  console.log("Factorial called")
+//  return answer
+// }
+// useCallback
+    function App(){
+
+    const [age,setage]= useState(0)
+    const [salary,setsalary]= useState(5000)
+    const increamentage= useCallback(()=>{
+      setage(age+1)
+    },[age])
+    const increamentsalary= useCallback(()=>{
+    setsalary(salary+1000)
+    },[salary])
+
+    return(
+    <div>
+    <Count text={"age"} number={age}/>
+    <Button clickhandler={increamentage}>increamentage</Button>
+    <Count text={"salary"} number={salary}/>
+    <Button clickhandler={increamentsalary}>increamentsalary</Button>
+    </div>
   )
-}
-const fact=(n)=>{
-  let answer=1;
- for (var i=n;i>=1;i--){
-  answer=answer*1
- }
- console.log("Factorial called")
- return answer
- }
-
-
-
-export default App;
+  }
+   export default App;
