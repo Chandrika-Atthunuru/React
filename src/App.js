@@ -10,9 +10,16 @@
 // import React,{useReducer, useRef, useState} from 'react';
 // import Cocktail from './Text 1'
 // import Personsdata from './Text 1'
-import React , { useCallback, useState } from "react";
-import Button from "./Button";
-import Count from './Text 1';
+// import React , { useCallback, useState } from "react";
+// import Button from "./Button";
+// import Count from './Text 1';
+import { Route,Routes, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Success from "./Sucess";
+import Restaurant from "./Restaurents";
+import Existing from "./Existng";
+import New from "./New";
+
 
 
 
@@ -407,24 +414,131 @@ import Count from './Text 1';
 //  return answer
 // }
 // useCallback
-    function App(){
+  //   function App(){
 
-    const [age,setage]= useState(0)
-    const [salary,setsalary]= useState(5000)
-    const increamentage= useCallback(()=>{
-      setage(age+1)
-    },[age])
-    const increamentsalary= useCallback(()=>{
-    setsalary(salary+1000)
-    },[salary])
+  //   const [age,setage]= useState(0)
+  //   const [salary,setsalary]= useState(5000)
+  //   const increamentage= useCallback(()=>{
+  //     setage(age+1)
+  //   },[age])
+  //   const increamentsalary= useCallback(()=>{
+  //   setsalary(salary+1000)
+  //   },[salary])
 
+  //   return(
+  //   <div>
+  //   <Count text={"age"} number={age}/>
+  //   <Button clickhandler={increamentage}>increamentage</Button>
+  //   <Count text={"salary"} number={salary}/>
+  //   <Button clickhandler={increamentsalary}>increamentsalary</Button>
+  //   </div>
+  // )
+  // }
+  //  export default App;
+  //  example
+  // function App(){
+  //   const [usersdata,setusersdata]=useState(personsdata)
+  //   const [searchdata,setsearchdata]=useState("")
+    
+  //   const showdata=()=>{
+  //     const fetchdata=getdetailsbyname(usersdata);
+  //     setsearchdata(fetchdata);
+  //   }
+  //   const getdetailsbyname = (usersdata)=>{
+  //    return `${usersdata}`
+  //   }
+  //   return(
+  //     <div>
+  //       <input type="text" placeholder="search" value={usersdata} onChange={(e)=>setusersdata(e.target.value)}/>
+  //       <button onClick={showdata}>search</button>
+  //       <div>
+  //         {searchdata &&<p>{searchdata}</p>}
+  //       </div>
+  //     </div>
+  //   )
+  // }
+  // React-Router-dom/to install react-router-dom - npm install react-router-dom
+  // routes,route
+  // navlink-it tells the link is active
+  // link- it will show the link like anchortag
+  
+  function App(){
     return(
-    <div>
-    <Count text={"age"} number={age}/>
-    <Button clickhandler={increamentage}>increamentage</Button>
-    <Count text={"salary"} number={salary}/>
-    <Button clickhandler={increamentsalary}>increamentsalary</Button>
-    </div>
-  )
+      <div>
+        <h1>React</h1>
+        <Navbar/>
+        <Routes>
+          <Route path='/'element={<Home/>}>Home</Route>
+          <Route path='/Contact'element={<Contact/>}>Contact</Route>
+          <Route path='/Service' element={<Service/>}>Service</Route>
+          <Route path='/About' element={<About/>}>About</Route>
+          <Route path='*' element={<Pagenotfound/>}></Route>
+          <Route path="/Success" element={<Success/>}></Route>
+          <Route path="/Restaurant" element={<Restaurant/>}>
+          <Route path="Existing" element={<Existing/>}/>
+          <Route path="new" element={<New/>}/>
+          </Route>
+        </Routes>
+      </div>
+    )
   }
-   export default App;
+  const Home=()=>{
+    const navigate=useNavigate();
+    const changehandler=()=>{
+      navigate('/Success')
+    }
+    return(
+      <>
+      <div>
+      This is Home component
+      </div>
+      <button onClick={changehandler}>show </button>
+      </>
+    )
+  }
+  const Contact=()=>{
+    return(
+      <div>
+       This is Contact component
+      </div>
+    )
+  }
+  const Service=()=>{
+    return(
+      <div>
+     This is Service component
+      </div>
+    )
+  }
+  const About=()=>{
+    return(
+      <div>
+     This is About component
+      </div>
+    )
+  }
+  const Pagenotfound=()=>{
+    return(
+      <div>
+      page not found
+      </div>
+    )
+  }
+  const Navbar=()=>{
+    return(
+      <div>
+        <nav>
+        {/* <Link to='/'>Home</Link>
+        <Link to='/Contact'>Contact</Link>
+        <Link to='/Service'>Service</Link>
+        <Link to='/About'>About</Link> */}
+        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/Contact'>Contact</NavLink>
+        <NavLink to='/Service'>Service</NavLink>
+        <NavLink to='/About'>About</NavLink>
+        <NavLink to='/Restaurant'>Restaurant</NavLink>
+        </nav>
+      </div>
+    )
+  }
+  export default App
